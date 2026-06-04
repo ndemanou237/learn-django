@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import ContactMessage
 
 def home_page_view(request):
     context = {
@@ -16,4 +17,12 @@ def contact_page_view(request):
 
 def propos_page_view(request):
     return render(request,'propos.html')
+
+def message_list_view(request):
+    messages = ContactMessage.objects.all()
+    context = {
+        'message_list': messages
+    }
+
+    return render(request, 'message_list.html',context)
 

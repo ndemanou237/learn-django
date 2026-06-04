@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.home_page_view),
     path('contact/', views.contact_page_view),
     path('propos/', views.propos_page_view),
+    path('message/', views.message_list_view),
 ]
