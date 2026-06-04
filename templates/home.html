@@ -1,12 +1,14 @@
+
 {% extends "base.html" %}
+{% load static %}
 
     {% block content %}
     
     
-    <h4>Bonjour {{ nom|upper }}</h4>
+    <h2>Bonjour {{ nom|upper }}</h2>
     <p>vous avez {{ age }} ans</p>
 
-    <h4>Vos couleurs</h4>
+    <h3>Vos couleurs</h3>
     <p>
         <ul>
             {% for couleur in couleurs  %}
@@ -18,12 +20,6 @@
     </p>
     
 
-    <h4>Statut de connexion</h4>
-    <p>
-        {% if est_connecte %}
-            <p>vous etes connecté</p>
-        {% else %}
-            <p>veuillez vous connecté</p>
-        {% endif %}
-    </p>
+    <h3>Votre image</h3>
+    <img src="{% static 'images/images.jpeg' %}" alt="">
     {% endblock %}
