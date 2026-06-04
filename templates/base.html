@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header style="background-color: #eee; padding:10px; margin-bottom:15px;"> 
+        <h1>Mon super site web</h1>
+        <nav>
+            <a href="/">Accueil</a>
+            <a href="/propos/">A propos</a>
+            <a href="/contact/">contact</a>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}
+            <p>Contenu par défaut</p>
+        {% endblock%}
+    </main>
+</body>
+</html>

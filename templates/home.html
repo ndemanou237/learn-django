@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+    {% block content %}
+    
+    
+    <h4>Bonjour {{ nom|upper }}</h4>
+    <p>vous avez {{ age }} ans</p>
+
+    <h4>Vos couleurs</h4>
+    <p>
+        <ul>
+            {% for couleur in couleurs  %}
+                <li>{{ couleur }}</li>
+            {% empty %}
+                <li>vous n'avez pas de couleurs preferee</li>       
+            {% endfor %}
+        </ul>
+    </p>
+    
+
+    <h4>Statut de connexion</h4>
+    <p>
+        {% if est_connecte %}
+            <p>vous etes connecté</p>
+        {% else %}
+            <p>veuillez vous connecté</p>
+        {% endif %}
+    </p>
+    {% endblock %}
