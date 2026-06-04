@@ -8,3 +8,6 @@ class ContactMessage(models.Model):
         auto_now_add=True
     )
     is_treated = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.name} - {self.email}"
