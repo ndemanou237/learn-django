@@ -56,3 +56,35 @@ header nav a{
     margin: 0 10px;
     font-weight: bold;
 }
+
+input[type="text"],input[type="email"],textarea{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button[type="submit"]{
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover{
+    background-color: #0056b3;
+}
+
+.success_message{
+    color: green;
+    margin-bottom: 15px;
+}
+
+.errorlist{
+    color: red;
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
