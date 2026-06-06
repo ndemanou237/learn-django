@@ -40,24 +40,24 @@ a:hover{
     text-decoration: underline;
 }
 
-ul{
+/* ul{
     list-style: none;
     padding: 0;
-}
+} */
 
-li{
+/* li{
     background-color: #f8f9fa;
     margin-bottom: 10px;
     padding: 15px;
     border: 1px solid #dee2e6;
-}
+} */
 
 header nav a{
     margin: 0 10px;
     font-weight: bold;
 }
 
-input[type="text"],input[type="email"],textarea{
+input[type="text"],input[type="email"],textarea,input[type="password"]{
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;

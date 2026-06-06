@@ -5,21 +5,16 @@
     {% block content %}
     
     
-    <h2>Bonjour {{ nom|upper }}</h2>
-    <p>vous avez {{ age }} ans</p>
-
-    <h3>Vos couleurs</h3>
-    <p>
-        <ul>
-            {% for couleur in couleurs  %}
-                <li>{{ couleur }}</li>
-            {% empty %}
-                <li>vous n'avez pas de couleurs preferee</li>       
-            {% endfor %}
-        </ul>
-    </p>
     
+        
+    
+    {% if user.is_authenticated %}
+        <h2>Bonjour, {{ user.username|upper }}</h2>
+        <p>vous etes connecté</p>
+    {% else %}
+        <p>veuillez vous connecté</p>
+    {% endif %}
 
-    <h3>Votre image</h3>
-    <img src="{% static 'images/images.jpeg' %}" alt="">
+    
+    
     {% endblock %}

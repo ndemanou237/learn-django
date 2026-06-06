@@ -2,15 +2,30 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import ContactMessage
 from .forms import ContactForm
+from django.views.generic import TemplateView
+from django.views.generic import ListView
+from django.views.generic import CreateView
+from django.contrib.auth.forms import UserCreationForm
 
-def home_page_view(request):
-    context = {
-        'nom':'shadow',
-        'age':19,
-        'couleurs': ['noir','rouge','orange'],
-        'est_connecte': True
-    }
-    return render(request,'home.html',context)
+class HomePageView(TemplateView):
+    template_name = "home.html"
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        
+        return context
+    
+class SignupView(CreateView):
+    form_class = UserCreationForm
+    template_name = "registration/signup.html"    
+
+# def home_page_view(request):
+#     context = {
+#         'nom':'shadow',
+#         'age':19,
+#         'couleurs': ['noir','rouge','orange'],
+#         'est_connecte': True
+#     }
+#     return render(request,'home.html',context)
 
 
 def contact_page_view(request):
@@ -32,11 +47,19 @@ def contact_page_view(request):
 def propos_page_view(request):
     return render(request,'propos.html')
 
-def message_list_view(request):
-    messages = ContactMessage.objects.all()
-    context = {
-        'message_list': messages
-    }
+class MessageListView(ListView):
+    model = ContactMessage
+    template_name = "message_list.html"
+    context_object_name = 'message_list'
 
-    return render(request, 'message_list.html',context)
+    def get_queryset(self):
+        return ContactMessage.objects.filter(is_treated=False)
+
+# def message_list_view(request):
+#     messages = ContactMessage.objects.all()
+#     context = {
+#         'message_list': messages
+#     }
+
+#     return render(request, 'message_list.html',context)
 
