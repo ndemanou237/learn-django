@@ -3,7 +3,7 @@
 {% block content %}
     <h2>Page d'inscription</h2>
 
-    <form method="POST" action="{% url "login" %}">
+    <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
 

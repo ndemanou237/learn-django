@@ -7,6 +7,9 @@ from django.views.generic import ListView
 from django.views.generic import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
+from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 class HomePageView(TemplateView):
     template_name = "home.html"
@@ -16,6 +19,7 @@ class HomePageView(TemplateView):
         return context
     
 class SignupView(CreateView):
+    model = User
     form_class = UserCreationForm
     success_url = reverse_lazy("login")
     template_name = "registration/signup.html"    
@@ -29,7 +33,7 @@ class SignupView(CreateView):
 #     }
 #     return render(request,'home.html',context)
 
-
+@login_required
 def contact_page_view(request):
     success_msg = None
     if request.method == "POST":
@@ -49,7 +53,7 @@ def contact_page_view(request):
 def propos_page_view(request):
     return render(request,'propos.html')
 
-class MessageListView(ListView):
+class MessageListView(LoginRequiredMixin,ListView):
     model = ContactMessage
     template_name = "message_list.html"
     context_object_name = 'message_list'

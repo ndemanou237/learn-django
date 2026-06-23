@@ -122,5 +122,8 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+LOGIN_URL = '/comptes/login/'
+LOGOUT_URL = '/comptes/logout/'
+
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
